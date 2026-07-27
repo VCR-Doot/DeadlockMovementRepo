@@ -1,4 +1,5 @@
-﻿using EntityStates;
+﻿using DeadlockMovementAPI.Modules;
+using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -6,10 +7,11 @@ using System.Text;
 using DeadlockMovementAPI.Modules;
 using UnityEngine;
 using UnityEngine.Networking;
+using DeadlockMovementAPI.Contents;
 
 namespace DeadlockMovementAPI.EntityStates
 {
-    public class DLMain: GenericCharacterMain
+    public class DLMain : GenericCharacterMain
     {
         public float stopWatch;
 
@@ -23,16 +25,31 @@ namespace DeadlockMovementAPI.EntityStates
 
             if (isAuthority)
             {
+
+                if (stopWatch > 0.5f)
+                {
+                    if (!characterBody.HasBuff(DLBuffs.fauxMovementBuff))
+                    {
+                        characterBody.AddBuff(DLBuffs.fauxMovementBuff);
+                    }
+                    if (inputBank.sprint.justPressed)
+                    {
+                        TrySprintInput();
+                    }
+                }
+                else
+                {
+                    if (characterBody.HasBuff(DLBuffs.fauxMovementBuff))
+                    {
+                        characterBody.RemoveBuff(DLBuffs.fauxMovementBuff);
+                    }
+                }
+
                 if (characterBody && characterBody.isSprinting)
                 {
                     stopWatch += GetDeltaTime();
                 }
-                else if (characterMotor.velocity.magnitude <= 0.5f && !characterBody.isSprinting) stopWatch = 0;
-
-                if (inputBank.sprint.justPressed && stopWatch > 0.5f)
-                {
-                    TrySprintInput();
-                }
+                else if (characterMotor.velocity.magnitude <= 0.5f || !characterBody.isSprinting) stopWatch = 0;
             }
 
             base.FixedUpdate();
@@ -57,7 +74,7 @@ namespace DeadlockMovementAPI.EntityStates
 
         public void WallJumpCheck()
         {
-           
+         
         }
 
         public override void HandleMovements()
@@ -106,6 +123,8 @@ namespace DeadlockMovementAPI.EntityStates
             ProcessJump();
             if (hasCharacterBody)
             {
+                bool isSprinting = sprintInputReceived;
+
                 if (stopWatch >= 0.5f)
                 {
                     base.characterBody.isSprinting = true;
@@ -117,7 +136,6 @@ namespace DeadlockMovementAPI.EntityStates
                 }
                 else
                 {
-                    bool isSprinting = sprintInputReceived;
                     if (moveVector.magnitude <= 0.5f)
                     {
                         isSprinting = false;

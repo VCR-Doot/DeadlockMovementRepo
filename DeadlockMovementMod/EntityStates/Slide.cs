@@ -1,10 +1,12 @@
-﻿using EntityStates;
+﻿using DeadlockMovementAPI.Modules;
+using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using DeadlockMovementAPI.Modules;
 using UnityEngine;
+using DeadlockMovementAPI.Contents;
 
 namespace DeadlockMovementAPI.EntityStates
 {
@@ -37,7 +39,7 @@ namespace DeadlockMovementAPI.EntityStates
 
             characterBody.isSprinting = true;
 
-            //slideInstance = GameObject.Instantiate(DeadlockMovementApi.Survivors.DeadlockMovementApi.DeadlockMovementApiAssets.swordHitImpactEffect, characterBody.footPosition, Quaternion.identity, modelLocator.modelBaseTransform);
+            slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition, Quaternion.identity, modelLocator.modelBaseTransform);
 
             base.OnEnter();
 
@@ -54,6 +56,7 @@ namespace DeadlockMovementAPI.EntityStates
         {
             GetModelAnimator().SetBool("isSliding", false);
             GameObject.Destroy(slideInstance);
+            base.characterMotor.moveDirection = moveVector;
             base.OnExit();
         }
 
@@ -63,7 +66,6 @@ namespace DeadlockMovementAPI.EntityStates
             {
                 if (KeyDownAuthority() || finalSpeed <= moveSpeedStat)
                 {
-                    ProcessJump();
                     outer.SetNextStateToMain();
                     return;
                 }
@@ -71,6 +73,8 @@ namespace DeadlockMovementAPI.EntityStates
                 RecalcSpeed();
 
                 travelDirection = (IdealDirection() * finalSpeed) * GetDeltaTime();
+
+                slideInstance.transform.rotation = Quaternion.Euler(travelDirection);
 
                 characterMotor.rootMotion += travelDirection;
             }
@@ -81,6 +85,7 @@ namespace DeadlockMovementAPI.EntityStates
         public override void Update()
         {
             UpdateAimDirection();
+            characterBody.isSprinting = true;
             base.Update();
         }
 

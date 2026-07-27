@@ -3,6 +3,8 @@ using UnityEngine;
 using System;
 using RoR2.Projectile;
 using DeadlockMovementAPI.Modules;
+using R2API;
+using UnityEngine.AddressableAssets;
 
 namespace DeadlockMovementAPI.Contents
 {
@@ -43,7 +45,9 @@ namespace DeadlockMovementAPI.Contents
 
         private static void CreateSlideEffects()
         {
-
+            slideEffect = PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoSlideVFX.prefab").WaitForCompletion(), "DLSlideEffect", false);
+            if (slideEffect.GetComponent<EffectComponent>()) DeadlockMovementApiPlugin.Destroy(slideEffect.GetComponent<EffectComponent>());
+            if (slideEffect.GetComponent<VFXAttributes>()) DeadlockMovementApiPlugin.Destroy(slideEffect.GetComponent<VFXAttributes>());
         }
 
         #endregion effects
