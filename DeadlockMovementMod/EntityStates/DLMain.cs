@@ -1,13 +1,12 @@
-﻿using DeadlockMovementAPI.Modules;
+﻿using DeadlockMovementAPI.Contents;
+using DeadlockMovementAPI.Modules;
 using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DeadlockMovementAPI.Modules;
 using UnityEngine;
 using UnityEngine.Networking;
-using DeadlockMovementAPI.Contents;
 
 namespace DeadlockMovementAPI.EntityStates
 {
@@ -18,6 +17,10 @@ namespace DeadlockMovementAPI.EntityStates
         // Slide Calculations?
         public float desiredMomentum = 0f;
 
+        public override void OnEnter()
+        {
+            base.OnEnter();
+        }
 
         public override void FixedUpdate()
         {
@@ -74,7 +77,7 @@ namespace DeadlockMovementAPI.EntityStates
 
         public void WallJumpCheck()
         {
-         
+
         }
 
         public override void HandleMovements()

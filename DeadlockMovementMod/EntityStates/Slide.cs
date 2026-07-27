@@ -1,12 +1,11 @@
-﻿using DeadlockMovementAPI.Modules;
+﻿using DeadlockMovementAPI.Contents;
+using DeadlockMovementAPI.Modules;
 using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DeadlockMovementAPI.Modules;
 using UnityEngine;
-using DeadlockMovementAPI.Contents;
 
 namespace DeadlockMovementAPI.EntityStates
 {
@@ -16,9 +15,9 @@ namespace DeadlockMovementAPI.EntityStates
         private float resultStart;
         private float finalSpeed;
 
-        public float groundDecay = 3;
-        public float upDecay = 6;
-        public float downBuild = 3.25f;
+        public float groundDecay = 5;
+        public float upDecay = 15;
+        public float downBuild = 2.5f;
 
         private Vector3 idealDirection;
 
@@ -34,20 +33,18 @@ namespace DeadlockMovementAPI.EntityStates
 
             GetModelAnimator().SetBool("isSliding", true);
 
-
             //PlayAnimation("FullBody, Override", "Slide", "Slide.playbackRate", duration);
 
             characterBody.isSprinting = true;
+
 
             slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition, Quaternion.identity, modelLocator.modelBaseTransform);
 
             base.OnEnter();
 
-
             resultStart = 1.2f * moveSpeedStat;
 
-            currentMomentum = resultStart;
-
+            currentMomentum = resultStart; // Scale the starting speed with your movespeed * 1.2
 
             RecalcSpeed();
         }
@@ -64,10 +61,21 @@ namespace DeadlockMovementAPI.EntityStates
         {
             if (isAuthority)
             {
-                if (KeyDownAuthority() || finalSpeed <= moveSpeedStat)
+
+                if (inputBank.sprint.justPressed || (finalSpeed <= moveSpeedStat && characterMotor.isGrounded))
                 {
                     outer.SetNextStateToMain();
                     return;
+                }
+
+                if (inputBank.jump.justPressed && characterMotor.jumpCount == 0)
+                {
+                    ApplyJumpVelocity(characterMotor, characterBody, 6f, 0.5f); // Arbetrary numbers off feel
+
+                    if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) >= 0.01f) // Checks if going downhill before allowing extra momentum gain
+                    {
+                        currentMomentum += 4f;
+                    }
                 }
 
                 RecalcSpeed();
@@ -94,10 +102,6 @@ namespace DeadlockMovementAPI.EntityStates
             base.characterDirection.moveVector = new Vector3(GetAimRay().direction.x, 0, GetAimRay().direction.z).normalized;
         }
 
-        public bool KeyDownAuthority()
-        {
-            return inputBank.jump.down;
-        }
 
         public Vector3 IdealDirection()
         {
@@ -110,7 +114,7 @@ namespace DeadlockMovementAPI.EntityStates
             }
 
             return idealDirection;
-        }
+        } // Updates the direction to be dampened over time
         public void RecalcSpeed()
         {
             if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) > 0.1f)
@@ -137,6 +141,20 @@ namespace DeadlockMovementAPI.EntityStates
         // Disabled generic movement
         public override void HandleMovements()
         {
+        }
+
+        public override void GatherInputs()
+        {
+            if (hasInputBank)
+            {
+                moveVector = base.inputBank.moveVector;
+                aimDirection = base.inputBank.aimDirection;
+                emoteRequest = base.inputBank.emoteRequest;
+                base.inputBank.emoteRequest = -1;
+                jumpInputReceived |= base.inputBank.jump.justPressed;
+                jumpInputReceived &= !base.inputBank.jump.hasPressBeenClaimed;
+                sprintInputReceived = base.inputBank.sprint.down;
+            }
         }
     }
 }
