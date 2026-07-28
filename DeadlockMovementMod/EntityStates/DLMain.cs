@@ -1,21 +1,18 @@
-﻿using DeadlockMovementAPI.Contents;
-using DeadlockMovementAPI.Modules;
-using EntityStates;
+﻿using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DeadlockMovementAPI.Modules;
 using UnityEngine;
 using UnityEngine.Networking;
+using DeadlockMovementAPI.Contents;
 
 namespace DeadlockMovementAPI.EntityStates
 {
     public class DLMain : GenericCharacterMain
     {
         public float stopWatch;
-
-        // Slide Calculations?
-        public float desiredMomentum = 0f;
 
         public override void OnEnter()
         {
@@ -28,6 +25,13 @@ namespace DeadlockMovementAPI.EntityStates
 
             if (isAuthority)
             {
+
+
+                if (characterMotor.Motor.GroundingStatus.IsStableOnGround && characterBody.HasBuff(DLBuffs.hiddenHasDashed))
+                {
+                    characterBody.RemoveBuff(DLBuffs.hiddenHasDashed);
+                }
+
 
                 if (stopWatch > 0.5f)
                 {
@@ -70,8 +74,12 @@ namespace DeadlockMovementAPI.EntityStates
             }
             else
             {
-                outer.SetNextState(new Dash());
-                return;
+                if (!characterBody.HasBuff(DLBuffs.hiddenHasDashed))
+                {
+                    characterBody.AddBuff(DLBuffs.hiddenHasDashed);
+                    outer.SetNextState(new Dash());
+                    return;
+                }
             }
         }
 
