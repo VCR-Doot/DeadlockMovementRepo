@@ -1,7 +1,7 @@
 ManifestFileVersion: 0
-CRC: 807200607
+CRC: 3610037534
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: testassetbundle
+      Name: deadlockassetbundle
       Dependencies: {}
