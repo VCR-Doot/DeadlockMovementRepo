@@ -11,13 +11,13 @@ C:\Program Files\Unity\Hub\Editor\2021.3.33f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/av3ro/source/repos/DeadlockMovementTest/TestUnityProject
+C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52995
-Successfully changed project path to: C:/Users/av3ro/source/repos/DeadlockMovementTest/TestUnityProject
-C:/Users/av3ro/source/repos/DeadlockMovementTest/TestUnityProject
+65499
+Successfully changed project path to: C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject
+C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,16 +47,16 @@ C:/Users/av3ro/source/repos/DeadlockMovementTest/TestUnityProject
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [26372] Host "[IP] 192.168.1.95 [Port] 0 [Flags] 2 [Guid] 1005369266 [EditorId] 1005369266 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BN06Q3Q) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [13244] Host "[IP] 192.168.1.95 [Port] 0 [Flags] 2 [Guid] 2185193397 [EditorId] 2185193397 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BN06Q3Q) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [26372] Host "[IP] 192.168.1.95 [Port] 0 [Flags] 2 [Guid] 1005369266 [EditorId] 1005369266 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BN06Q3Q) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [13244] Host "[IP] 192.168.1.95 [Port] 0 [Flags] 2 [Guid] 2185193397 [EditorId] 2185193397 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BN06Q3Q) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
-Refreshing native plugins compatible for Editor in 26.73 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 22.71 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.33f1 (ee5a2aa03ab2)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/av3ro/source/repos/DeadlockMovementTest/TestUnityProject/Assets
+[Subsystems] Discovering subsystems at path C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
@@ -68,40 +68,40 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56644
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56052
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.024810 seconds.
+Registered in 0.009587 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 514 ms
-Refreshing native plugins compatible for Editor in 21.36 ms, found 0 plugins.
+Android Extension - Scanning For ADB Devices 724 ms
+Refreshing native plugins compatible for Editor in 29.75 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.728 seconds
+- Completed reload, in  1.779 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1728ms)
-		BeginReloadAssembly (225ms)
+	ReloadAssembly (1780ms)
+		BeginReloadAssembly (172ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (5ms)
-		EndReloadAssembly (1225ms)
-			LoadAssemblies (216ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (1460ms)
+			LoadAssemblies (168ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (184ms)
+			SetupTypeCache (159ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (47ms)
-			SetupLoadedEditorAssemblies (927ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (1205ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (700ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (21ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (139ms)
+				InitializePlatformSupportModulesInManaged (911ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (30ms)
+				BeforeProcessingInitializeOnLoad (4ms)
+				ProcessInitializeOnLoadAttributes (197ms)
 				ProcessInitializeOnLoadMethodAttributes (64ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -109,50 +109,50 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001123 seconds.
+Registered in 0.000903 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 0.17 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.119 seconds
+- Completed reload, in  1.206 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1120ms)
-		BeginReloadAssembly (190ms)
+	ReloadAssembly (1209ms)
+		BeginReloadAssembly (234ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (8ms)
+			DisableScriptedObjects (10ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (29ms)
-		EndReloadAssembly (777ms)
-			LoadAssemblies (131ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (816ms)
+			LoadAssemblies (145ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (191ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (58ms)
-			SetupLoadedEditorAssemblies (348ms)
+			SetupTypeCache (223ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (57ms)
+			SetupLoadedEditorAssemblies (350ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (34ms)
-				SetLoadedEditorAssemblies (0ms)
+				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (0ms)
-				BeforeProcessingInitializeOnLoad (60ms)
-				ProcessInitializeOnLoadAttributes (193ms)
+				BeforeProcessingInitializeOnLoad (59ms)
+				ProcessInitializeOnLoadAttributes (194ms)
 				ProcessInitializeOnLoadMethodAttributes (49ms)
 				AfterProcessingInitializeOnLoad (12ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 706 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 8 unused Assets / (46.6 KB). Loaded Objects now: 1182.
 Memory consumption went from 48.1 MB to 48.1 MB.
-Total: 3.977300 ms (FindLiveObjects: 0.222600 ms CreateObjectMapping: 0.098900 ms MarkObjects: 3.486800 ms  DeleteObjects: 0.167600 ms)
+Total: 2.385400 ms (FindLiveObjects: 0.157700 ms CreateObjectMapping: 0.084600 ms MarkObjects: 2.085600 ms  DeleteObjects: 0.056400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -166,3 +166,500 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 439.959408 seconds.
+  path: Assets/DeadlockAssets/HenryBundle/HenryDisplay.prefab
+  artifactKey: Guid(9552880169ac54248bdf012a5175ef46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/HenryBundle/HenryDisplay.prefab using Guid(9552880169ac54248bdf012a5175ef46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b30d3ef7bb653b7945bb51342e59f186') in 0.620972 seconds 
+Number of asset objects unloaded after import = 436
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/DeadlockAssets/HenryBundle/HenryBazookaRocketGhost.prefab
+  artifactKey: Guid(d2df6747b5942654ebdf087b59c7a8f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/HenryBundle/HenryBazookaRocketGhost.prefab using Guid(d2df6747b5942654ebdf087b59c7a8f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebf5b31f61be8320bfe5845d2a0c0ff6') in 0.079965 seconds 
+Number of asset objects unloaded after import = 16
+========================================================================
+Received Import Request.
+  Time since last request: 10.249744 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Textures
+  artifactKey: Guid(8b63e8509bb9a3c4d8aed201f2c0b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Textures using Guid(8b63e8509bb9a3c4d8aed201f2c0b6b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b0be0702211826aaccdcaee65abf11e') in 0.017335 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.668064 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Mesh
+  artifactKey: Guid(75a27f59e29ac8848b0cb40aa3790180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Mesh using Guid(75a27f59e29ac8848b0cb40aa3790180) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd135ad4e11dd2e5d7bea54809f911333') in 0.019031 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.721388 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Materials
+  artifactKey: Guid(4d90c8b039bce844f8752272b48f74bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Materials using Guid(4d90c8b039bce844f8752272b48f74bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c706db81362ff63d8183a6f51b2f9d9e') in 0.018369 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.736300 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons
+  artifactKey: Guid(47c84ffeb5c6acd4bbe272de81354ff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons using Guid(47c84ffeb5c6acd4bbe272de81354ff1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afa6b2252422619bd939a95c2ff3dd6e') in 0.031291 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.658579 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Animation
+  artifactKey: Guid(d3c67419dbe4e444f859b5525eb2a55e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Animation using Guid(d3c67419dbe4e444f859b5525eb2a55e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d9ea0b8a02d451f5890bbf50029b03e') in 0.015310 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 3.252225 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX
+  artifactKey: Guid(fa0cf6d5d85508b458b253e5366eeba0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX using Guid(fa0cf6d5d85508b458b253e5366eeba0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7987c4e2b0d1a8db9bc35a8748161d06') in 0.015618 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.026791 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/BombExplosionEffect.prefab
+  artifactKey: Guid(05b273758480af74a919e826c7b80a86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/BombExplosionEffect.prefab using Guid(05b273758480af74a919e826c7b80a86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d83cace43e137fb2e39788e55913103') in 0.106627 seconds 
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/HenrySwordSwingEffect.prefab
+  artifactKey: Guid(3534552e7829f9842ba3156065afc540) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/HenrySwordSwingEffect.prefab using Guid(3534552e7829f9842ba3156065afc540) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b37a1c04bf5239d726b9e9c5e4b536f0') in 0.058376 seconds 
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/HenryDustEffect.prefab
+  artifactKey: Guid(3e1f2fb19a263c64daf36c5f2dba513c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/HenryDustEffect.prefab using Guid(3e1f2fb19a263c64daf36c5f2dba513c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f440075e87781d219f5f148a535c87c') in 0.044523 seconds 
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/ImpactHenryPunch.prefab
+  artifactKey: Guid(d8a0adafb41e74940974a4390820c51d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/ImpactHenryPunch.prefab using Guid(d8a0adafb41e74940974a4390820c51d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99f8479e6a0d30b690068a8ea8f1df00') in 0.046047 seconds 
+Number of asset objects unloaded after import = 23
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/HenryFistSwingEffect.prefab
+  artifactKey: Guid(4e055243e1b45454cb4811d6614777a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/HenryFistSwingEffect.prefab using Guid(4e055243e1b45454cb4811d6614777a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b9bd67599ad2a623d794111106b304a') in 0.058857 seconds 
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.833126 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Materials/matSmoke.mat
+  artifactKey: Guid(cf4db6d1eb2b3f84ca9b7a812ca8699f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Materials/matSmoke.mat using Guid(cf4db6d1eb2b3f84ca9b7a812ca8699f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9684d01354c681005fab416e41ba7d8a') in 0.066565 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 29.025697 seconds.
+  path: Assets/DeadlockAssets/FBX/animHenry.fbx
+  artifactKey: Guid(3f55d8352b2212743b809db2974cdd5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX/animHenry.fbx using Guid(3f55d8352b2212743b809db2974cdd5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1560bc586567efad08a828e31a5c56c') in 0.190656 seconds 
+Number of asset objects unloaded after import = 221
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/DeadlockAssets/FBX/SwordSwingMesh.fbx
+  artifactKey: Guid(35dabc294656c8b46a5af38bf4865a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX/SwordSwingMesh.fbx using Guid(35dabc294656c8b46a5af38bf4865a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '275f4caf080c373d36a09d85b3dc3f6a') in 0.035551 seconds 
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/DeadlockAssets/FBX/Henry.fbx
+  artifactKey: Guid(556db4bec6f4dd148be04e7fedac562d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX/Henry.fbx using Guid(556db4bec6f4dd148be04e7fedac562d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7debfaacf3b7ddf27f540c76f40a915') in 0.087141 seconds 
+Number of asset objects unloaded after import = 114
+========================================================================
+Received Import Request.
+  Time since last request: 14.330302 seconds.
+  path: Assets/DeadlockAssets/FBX/Henry.fbx
+  artifactKey: Guid(556db4bec6f4dd148be04e7fedac562d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX/Henry.fbx using Guid(556db4bec6f4dd148be04e7fedac562d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72e2816aea673eabea5dd4abc96a05b3') in 0.071293 seconds 
+Number of asset objects unloaded after import = 114
+========================================================================
+Received Import Request.
+  Time since last request: 4.633780 seconds.
+  path: Assets/DeadlockAssets/FBX/HenryRef.fbx
+  artifactKey: Guid(556db4bec6f4dd148be04e7fedac562d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX/HenryRef.fbx using Guid(556db4bec6f4dd148be04e7fedac562d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76a7157eb0bd43c9ada19856e34d22f9') in 0.062063 seconds 
+Number of asset objects unloaded after import = 114
+========================================================================
+Received Import Request.
+  Time since last request: 21.722568 seconds.
+  path: Assets/DeadlockAssets/BundleStuff
+  artifactKey: Guid(ef06804852cee460daf2bf955d281cd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff using Guid(ef06804852cee460daf2bf955d281cd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16265a541e3f54d68ed2ece871e4826d') in 0.026430 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.787625 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Mesh
+  artifactKey: Guid(7d14f91c84e5a244d90ce1d4d1a00942) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Mesh using Guid(7d14f91c84e5a244d90ce1d4d1a00942) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '457e3dc4ae958462552feccebb4154f1') in 0.009475 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.047341 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Mesh/meshBoxingGlove.mesh
+  artifactKey: Guid(77ed1f014ac12934580d107b7183bb87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Mesh/meshBoxingGlove.mesh using Guid(77ed1f014ac12934580d107b7183bb87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a50d7fff7c886f0a83c081331e29651') in 0.043797 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 13.781396 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Textures
+  artifactKey: Guid(6c78a05f6baada340af64c1a18bd8966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Textures using Guid(6c78a05f6baada340af64c1a18bd8966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9ea925ab80906f639521968df86dc5e') in 0.003599 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.046936 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Textures/texDust.png
+  artifactKey: Guid(937971f52aa5077419a0b06ccdb929b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Textures/texDust.png using Guid(937971f52aa5077419a0b06ccdb929b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '305f3081c632f2562a96ffd866fa40be') in 0.055457 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Textures/texHenrySwing2.png
+  artifactKey: Guid(46cf969008c360e42bda1c3b8f04ecfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Textures/texHenrySwing2.png using Guid(46cf969008c360e42bda1c3b8f04ecfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5946493c2212fb870fe7fcca34a3b8d0') in 0.035681 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Textures/texFire.tga
+  artifactKey: Guid(85e74a51b7a80774aac4ae1e9f2f1b4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Textures/texFire.tga using Guid(85e74a51b7a80774aac4ae1e9f2f1b4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cca2904f761636b2b45e87eccfaf5427') in 0.038316 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Textures/texHitSpark.png
+  artifactKey: Guid(5881ad060c46b854eb9c72a2781a1ce6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Textures/texHitSpark.png using Guid(5881ad060c46b854eb9c72a2781a1ce6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3751547a2616ddafd2efd5f74c16a69') in 0.040585 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Textures/texLightning.tif
+  artifactKey: Guid(06e4a78c75e10c145a9156e32089ec9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Textures/texLightning.tif using Guid(06e4a78c75e10c145a9156e32089ec9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8e29c620b8d46cb19be8ae4cc8f1756') in 0.035356 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Textures/texSmoke.png
+  artifactKey: Guid(71c8b57c78674d443893909c26746a6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Textures/texSmoke.png using Guid(71c8b57c78674d443893909c26746a6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ab5d354b9a9d9728ba93cc14b86ec01') in 0.042653 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 741.172191 seconds.
+  path: Assets/Materials/HitboxPreview.mat
+  artifactKey: Guid(ac804059bd55d8a499887855410c87f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Materials/HitboxPreview.mat using Guid(ac804059bd55d8a499887855410c87f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32b139b702ac5867375a47e65de569f9') in 0.638517 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 4.729614 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texBazookaFireIcon.png
+  artifactKey: Guid(0f9f21ad430f4f54f8d8c957423aaa01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texBazookaFireIcon.png using Guid(0f9f21ad430f4f54f8d8c957423aaa01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9d0378dcaee8f98e7808b7543b5ca32') in 0.135981 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texSpecialIcon.png
+  artifactKey: Guid(44a1d09fd35f1384e819b98e0f18058e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texSpecialIcon.png using Guid(44a1d09fd35f1384e819b98e0f18058e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f670ba7db8a1a6f11b5d82508a1ec697') in 0.060178 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texBoxingGlovesIcon.png
+  artifactKey: Guid(1d742e294766fd645a831674eb9c2f03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texBoxingGlovesIcon.png using Guid(1d742e294766fd645a831674eb9c2f03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d8e4e66cf0c5416291fff7c90845376') in 0.088899 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texHenryIcon.png
+  artifactKey: Guid(33c89ac909113894280a0cfd14c99f2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texHenryIcon.png using Guid(33c89ac909113894280a0cfd14c99f2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a576a4b01c511c05cb2702bf70c90b9') in 0.039597 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texPassiveIcon.png
+  artifactKey: Guid(977438518be9ff545a06824ddf881e15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texPassiveIcon.png using Guid(977438518be9ff545a06824ddf881e15) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '657357faf4f266ed7c70f7e29c7d839a') in 0.039642 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texScepterSpecialIcon.png
+  artifactKey: Guid(7f917d475f31279429e73be47da690cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texScepterSpecialIcon.png using Guid(7f917d475f31279429e73be47da690cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf5ad04f27075203430c641a9b3483f6') in 0.055082 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texPistolIcon.png
+  artifactKey: Guid(b317507c59d9d6847bf537e18d94cb66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texPistolIcon.png using Guid(b317507c59d9d6847bf537e18d94cb66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1377399b2d1b04055a1a2a8288d108a1') in 0.060867 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texShotgunIcon.png
+  artifactKey: Guid(26d60250e708d9a4d89bbbf4b857f45d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texShotgunIcon.png using Guid(26d60250e708d9a4d89bbbf4b857f45d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfb1dec1aa3adfe3cbf3089238b9d2e8') in 0.041785 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texHenryAchievement.png
+  artifactKey: Guid(a12611e353c29ec458cf2e426e5cb05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texHenryAchievement.png using Guid(a12611e353c29ec458cf2e426e5cb05c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6dea195b9a4f8aae63bf9f8878eb33c6') in 0.048056 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texSecondaryIcon.png
+  artifactKey: Guid(e1b58742d5489f9409faeafa1fe57f42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texSecondaryIcon.png using Guid(e1b58742d5489f9409faeafa1fe57f42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '284f25bcaf93f5c1a0418241a92e54c3') in 0.047661 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/Icons/texVergilAchievement.png
+  artifactKey: Guid(d61effa4e29106f4e96b07fd37365551) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/Icons/texVergilAchievement.png using Guid(d61effa4e29106f4e96b07fd37365551) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf9168c2926abe8c3f879e5690063c5f') in 0.050680 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 23.529585 seconds.
+  path: Assets/DeadlockAssets/BundleStuff
+  artifactKey: Guid(ef06804852cee460daf2bf955d281cd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff using Guid(ef06804852cee460daf2bf955d281cd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '423bc5b067c0b31c7cdb86cc3ab877db') in 0.015435 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 10.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5 unused Assets / (30.6 KB). Loaded Objects now: 1235.
+Memory consumption went from 50.2 MB to 50.2 MB.
+Total: 47.978700 ms (FindLiveObjects: 0.126000 ms CreateObjectMapping: 0.042100 ms MarkObjects: 47.460600 ms  DeleteObjects: 0.348500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 0.85 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2 unused Assets / (4.4 KB). Loaded Objects now: 1235.
+Memory consumption went from 50.2 MB to 50.2 MB.
+Total: 3.354200 ms (FindLiveObjects: 0.152800 ms CreateObjectMapping: 0.165200 ms MarkObjects: 3.013500 ms  DeleteObjects: 0.021200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.84 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2 unused Assets / (4.4 KB). Loaded Objects now: 1235.
+Memory consumption went from 50.2 MB to 50.2 MB.
+Total: 6.138000 ms (FindLiveObjects: 0.211600 ms CreateObjectMapping: 0.152800 ms MarkObjects: 5.748600 ms  DeleteObjects: 0.023200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.12 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2 unused Assets / (4.4 KB). Loaded Objects now: 1235.
+Memory consumption went from 50.2 MB to 50.2 MB.
+Total: 14.213500 ms (FindLiveObjects: 3.593000 ms CreateObjectMapping: 0.075300 ms MarkObjects: 10.522200 ms  DeleteObjects: 0.021700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2 unused Assets / (4.4 KB). Loaded Objects now: 1235.
+Memory consumption went from 50.2 MB to 50.2 MB.
+Total: 3.174400 ms (FindLiveObjects: 0.139600 ms CreateObjectMapping: 0.082200 ms MarkObjects: 2.936800 ms  DeleteObjects: 0.014700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 727.395276 seconds.
+  path: Assets/DeadlockAssets/FBX
+  artifactKey: Guid(2e02b6e0819d3f446b4737ca40648897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX using Guid(2e02b6e0819d3f446b4737ca40648897) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed0bc098dfd412fb1fa4cd26c3c89002') in 0.056063 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 13.762780 seconds.
+  path: Assets/DeadlockAssets/FBX/meshSlideWave.fbx
+  artifactKey: Guid(c65775c79468d894081abeacf51e6d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX/meshSlideWave.fbx using Guid(c65775c79468d894081abeacf51e6d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c3a5d3da4ef75b3e49b4935379a57bb') in 0.274476 seconds 
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 28.912906 seconds.
+  path: Assets/DeadlockAssets/FBX/meshSlideWave.fbx
+  artifactKey: Guid(c65775c79468d894081abeacf51e6d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX/meshSlideWave.fbx using Guid(c65775c79468d894081abeacf51e6d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcbe04407f1480f0b886b900f96758f7') in 0.027803 seconds 
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 52.192195 seconds.
+  path: Assets/DeadlockAssets/FBX/meshSlideWave.fbx
+  artifactKey: Guid(c65775c79468d894081abeacf51e6d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/FBX/meshSlideWave.fbx using Guid(c65775c79468d894081abeacf51e6d53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bc38b2937a1298f14aa9de6e567e8e4') in 0.034029 seconds 
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 63.537797 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/Mesh/meshSlideWave.mesh
+  artifactKey: Guid(1bba72bb4ffdd744f9344ba9d2b3fd73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/Mesh/meshSlideWave.mesh using Guid(1bba72bb4ffdd744f9344ba9d2b3fd73) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0120b871a836e879aa1d4ebe82224c30') in 0.019205 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 14.171452 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/meshSlideWave Variant.prefab
+  artifactKey: Guid(2a7e1f1ea95576c43a1e9eb249f6957d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/meshSlideWave Variant.prefab using Guid(2a7e1f1ea95576c43a1e9eb249f6957d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec97d052b09bfdb65ff8c0d9472a8f81') in 0.031616 seconds 
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 6.975504 seconds.
+  path: Assets/DeadlockAssets/BundleStuff/VFX/SlideFX.prefab
+  artifactKey: Guid(2a7e1f1ea95576c43a1e9eb249f6957d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/DeadlockAssets/BundleStuff/VFX/SlideFX.prefab using Guid(2a7e1f1ea95576c43a1e9eb249f6957d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cab82239cddda41e4b26291d55f8357e') in 0.023609 seconds 
+Number of asset objects unloaded after import = 13

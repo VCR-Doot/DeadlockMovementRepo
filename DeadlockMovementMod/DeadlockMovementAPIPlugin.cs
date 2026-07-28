@@ -1,4 +1,5 @@
 using BepInEx;
+using DeadlockMovementAPI.Contents;
 using R2API;
 using RoR2;
 using UnityEngine;
@@ -40,8 +41,23 @@ namespace DeadlockMovementAPI
 
             new Contents.InitializeAssets().Initialize();
 
+            Hooks();
+
             // make a content pack and add it. this has to be last
             new Modules.ContentPacks().Initialize();
+        }
+
+        public void Hooks()
+        {
+            R2API.RecalculateStatsAPI.GetStatCoefficients += RecalculateStatsAPI_GetStatCoefficients;
+        }
+
+        private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
+        {
+            if (sender.HasBuff(DLBuffs.fauxMovementBuff))
+            {
+                args.moveSpeedTotalMult += 0.05f;
+            }
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using DeadlockMovementAPI.Contents;
-using DeadlockMovementAPI.Modules;
-using EntityStates;
+﻿using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DeadlockMovementAPI.Modules;
 using UnityEngine;
+using DeadlockMovementAPI.Contents;
 
 namespace DeadlockMovementAPI.EntityStates
 {
@@ -42,9 +42,9 @@ namespace DeadlockMovementAPI.EntityStates
 
             base.OnEnter();
 
-            resultStart = 1.2f * moveSpeedStat;
+            resultStart = 1.4f * moveSpeedStat;
 
-            currentMomentum = resultStart; // Scale the starting speed with your movespeed * 1.2
+            currentMomentum = resultStart; // Scale the starting speed with your movespeed * 1.4
 
             RecalcSpeed();
         }
@@ -62,6 +62,20 @@ namespace DeadlockMovementAPI.EntityStates
             if (isAuthority)
             {
 
+                GetModelAnimator().SetBool("isSliding", characterMotor.isGrounded);
+
+
+
+                if (!isGrounded && slideInstance)
+                {
+                    GameObject.Destroy(slideInstance);
+                }
+                else if (isGrounded && !slideInstance)
+                {
+                    slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition, Quaternion.Euler(travelDirection), modelLocator.modelBaseTransform);
+                }
+
+
                 if (inputBank.sprint.justPressed || (finalSpeed <= moveSpeedStat && characterMotor.isGrounded))
                 {
                     outer.SetNextStateToMain();
@@ -72,9 +86,9 @@ namespace DeadlockMovementAPI.EntityStates
                 {
                     ApplyJumpVelocity(characterMotor, characterBody, 6f, 0.5f); // Arbetrary numbers off feel
 
-                    if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) >= 0.01f) // Checks if going downhill before allowing extra momentum gain
+                    if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) >= 0.01f) // Checks if going downhill or on flat ground before allowing extra momentum gain
                     {
-                        currentMomentum += 4f;
+                        currentMomentum += 6f;
                     }
                 }
 
@@ -82,7 +96,10 @@ namespace DeadlockMovementAPI.EntityStates
 
                 travelDirection = (IdealDirection() * finalSpeed) * GetDeltaTime();
 
-                slideInstance.transform.rotation = Quaternion.Euler(travelDirection);
+                if (slideInstance)
+                {
+                    slideInstance.transform.rotation = Quaternion.Euler(travelDirection);
+                }
 
                 characterMotor.rootMotion += travelDirection;
             }
@@ -110,11 +127,11 @@ namespace DeadlockMovementAPI.EntityStates
             {
                 vector.Normalize();
                 idealDirection = Vector3.RotateTowards(idealDirection, new Vector3(vector.x, 0f, vector.y).normalized, 2.25f * GetDeltaTime(), 1);
-                slideInstance.transform.rotation = Quaternion.Euler(idealDirection);
             }
 
             return idealDirection;
         } // Updates the direction to be dampened over time
+
         public void RecalcSpeed()
         {
             if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) > 0.1f)
