@@ -45,9 +45,13 @@ namespace DeadlockMovementAPI.Contents
 
         private static void CreateSlideEffects()
         {
-            slideEffect = PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/Commando/CommandoSlideVFX.prefab").WaitForCompletion(), "DLSlideEffect", false);
-            if (slideEffect.GetComponent<EffectComponent>()) DeadlockMovementApiPlugin.Destroy(slideEffect.GetComponent<EffectComponent>());
-            if (slideEffect.GetComponent<VFXAttributes>()) DeadlockMovementApiPlugin.Destroy(slideEffect.GetComponent<VFXAttributes>());
+            slideEffect = _assetBundle.LoadAsset<GameObject>("SlideVFX");
+            MeshRenderer r = slideEffect.transform.GetChild(0).GetComponent<MeshRenderer>();
+
+            //if (r)
+            //{
+            //    r.sharedMaterial = 
+            //}
         }
 
         #endregion effects

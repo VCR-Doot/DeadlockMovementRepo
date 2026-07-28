@@ -113,6 +113,8 @@
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:UNITY_POST_PROCESSING_STACK_V2
+-define:RISKOFRAIN2
+-define:TK_ADDRESSABLE
 -define:PACKAGE_PHYSICS
 -define:PACKAGE_PHYSICS2D
 -define:PACKAGE_TILEMAP
@@ -329,6 +331,10 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.33f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
+-r:"C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Library/PackageCache/com.passivepicasso.thunderkit@a9b134ef92/Editor/ThirdParty/AssetsTools.NET/AssetsTools.NET.dll"
+-r:"C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Library/PackageCache/com.passivepicasso.thunderkit@a9b134ef92/Editor/ThirdParty/Markdig/Markdig.Signed.dll"
+-r:"C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Library/PackageCache/com.passivepicasso.thunderkit@a9b134ef92/Editor/ThirdParty/SharpCompress/SharpCompress.dll"
+-r:"C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Library/PackageCache/com.passivepicasso.thunderkit@a9b134ef92/Editor/ThirdParty/SharpZipLib/ICSharpCode.SharpZipLib.dll"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/AxisEventData.cs"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/BaseEventData.cs"
 "Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventData/PointerEventData.cs"

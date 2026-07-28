@@ -5,23 +5,83 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 639201078981210072
-    m_Hash: 1282097409
+      ticks: 639208213552555787
+    m_Hash: 2396822181
   m_LockFileStatus:
     m_FilePath: C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 639201078981225165
-    m_Hash: 2805201530
+      ticks: 639208213552622160
+    m_Hash: 3213336187
 m_EmbeddedPackageManifests:
-  m_ManifestsStatus: {}
+  m_ManifestsStatus:
+    C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Packages/Risk of Rain 2/package.json:
+      m_FilePath: C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Packages/Risk
+        of Rain 2/package.json
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 639208213098280256
+      m_Hash: 3682407382
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: C:/Users/av3ro/source/repos/DeadlockMovement/DeadlockUnityProject/Packages
 m_EditorVersion: 2021.3.33f1 (ee5a2aa03ab2)
 m_ResolvedPackages:
+- packageId: com.passivepicasso.thunderkit@https://github.com/PassivePicasso/ThunderKit.git
+  testable: 0
+  isDirectDependency: 1
+  version: 9.4.2
+  source: 5
+  resolvedPath: C:\Users\av3ro\source\repos\DeadlockMovement\DeadlockUnityProject\Library\PackageCache\com.passivepicasso.thunderkit@a9b134ef92
+  assetPath: Packages/com.passivepicasso.thunderkit
+  name: com.passivepicasso.thunderkit
+  displayName: ThunderKit
+  author:
+    name: ThunderKit
+    email: 
+    url: https://github.com/PassivePicasso/ThunderKit
+  category: 
+  type: 
+  description: Unity Game Mod Development extension with build, packaging and analysis
+    tools
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    verified: 
+  dependencies:
+  - name: com.unity.scriptablebuildpipeline
+    version: 1.16.1
+  resolvedDependencies:
+  - name: com.unity.scriptablebuildpipeline
+    version: 1.20.1
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
 - packageId: com.unity.assetbundlebrowser@1.7.0
   testable: 0
   isDirectDependency: 1
@@ -247,6 +307,103 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.2.5
+    nextVersion: 
+- packageId: com.unity.postprocessing@2.3.0
+  testable: 0
+  isDirectDependency: 1
+  version: 2.3.0
+  source: 1
+  resolvedPath: C:\Users\av3ro\source\repos\DeadlockMovement\DeadlockUnityProject\Library\PackageCache\com.unity.postprocessing@2.3.0
+  assetPath: Packages/com.unity.postprocessing
+  name: com.unity.postprocessing
+  displayName: Post Processing
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: The post-processing stack (v2) comes with a collection of effects
+    and image filters you can apply to your cameras to improve the visuals of your
+    games.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.1.7
+    - 0.1.8
+    - 2.0.0-beta
+    - 2.0.1-beta
+    - 2.0.2-preview
+    - 2.0.3-preview
+    - 2.0.5-preview
+    - 2.0.7-preview
+    - 2.0.8-preview
+    - 2.0.9-preview
+    - 2.0.10-preview
+    - 2.0.11-preview
+    - 2.0.12-preview
+    - 2.0.13-preview
+    - 2.0.14-preview
+    - 2.0.15-preview
+    - 2.0.16-preview
+    - 2.0.17-preview
+    - 2.1.0
+    - 2.1.1
+    - 2.1.2
+    - 2.1.3
+    - 2.1.4
+    - 2.1.5
+    - 2.1.6
+    - 2.1.7
+    - 2.2.1
+    - 2.2.2
+    - 2.3.0
+    - 3.0.1
+    - 3.0.3
+    - 3.1.0
+    - 3.1.1
+    - 3.2.0
+    - 3.2.1
+    - 3.2.2
+    - 3.3.0
+    - 3.4.0
+    - 3.5.0
+    - 3.5.1
+    - 3.5.3
+    - 3.5.4
+    compatible:
+    - 3.2.2
+    - 3.3.0
+    - 3.4.0
+    - 3.5.0
+    - 3.5.1
+    - 3.5.3
+    - 3.5.4
+    verified: 3.2.2
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637144563160000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: git@github.com:Unity-Technologies/PostProcessing.git
+    revision: e6de985c41f04a5fc7c7227dd67e3e73fac834e7
+    path: 
+  unityLifecycle:
+    version: 3.2.2
     nextVersion: 
 - packageId: com.unity.textmeshpro@3.0.6
   testable: 0
@@ -510,6 +667,105 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
+    nextVersion: 
+- packageId: riskofthunder-ror2editorkit@https://github.com/risk-of-thunder/RoR2EditorKit.git#5.6.6
+  testable: 0
+  isDirectDependency: 1
+  version: 5.6.6
+  source: 5
+  resolvedPath: C:\Users\av3ro\source\repos\DeadlockMovement\DeadlockUnityProject\Library\PackageCache\riskofthunder-ror2editorkit@e32ccf4231
+  assetPath: Packages/riskofthunder-ror2editorkit
+  name: riskofthunder-ror2editorkit
+  displayName: RoR2EditorKit
+  author:
+    name: RiskofThunder
+    email: 
+    url: 
+  category: 
+  type: 
+  description: The Risk of Rain 2 Editor Kit (Abreviated as ROR2EK) is a unity package
+    designed specifically for helping mod creators create content for Risk of Rain
+    2.
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    verified: 
+  dependencies:
+  - name: com.unity.editorcoroutines
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.editorcoroutines
+    version: 1.0.0
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+- packageId: riskofthunder-ror2importextensions@https://github.com/risk-of-thunder/RoR2ImportExtensions.git
+  testable: 0
+  isDirectDependency: 1
+  version: 1.7.2
+  source: 5
+  resolvedPath: C:\Users\av3ro\source\repos\DeadlockMovement\DeadlockUnityProject\Library\PackageCache\riskofthunder-ror2importextensions@477ad9b52e
+  assetPath: Packages/riskofthunder-ror2importextensions
+  name: riskofthunder-ror2importextensions
+  displayName: RoR2 Import Extensions
+  author:
+    name: RiskOfThunder
+    email: 
+    url: 
+  category: 
+  type: 
+  description: Import extensions for ThunderKit to stabilize and complete the RoR2
+    import process
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    verified: 
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
     nextVersion: 
 - packageId: com.unity.modules.ai@1.0.0
   testable: 0
@@ -2171,6 +2427,59 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.0.0
     nextVersion: 
+- packageId: riskofrain2@file:C:\Users\av3ro\source\repos\DeadlockMovement\DeadlockUnityProject\Packages\Risk
+    of Rain 2
+  testable: 1
+  isDirectDependency: 1
+  version: 0.0.1
+  source: 3
+  resolvedPath: C:\Users\av3ro\source\repos\DeadlockMovement\DeadlockUnityProject\Packages\Risk
+    of Rain 2
+  assetPath: Packages/riskofrain2
+  name: riskofrain2
+  displayName: Risk of Rain 2
+  author:
+    name: DefaultCompany
+    email: 
+    url: 
+  category: 
+  type: 
+  description: 'Imported assemblies from game Risk of Rain 2
+
+    
+
+    (Version
+    number may be inaccurate)'
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    verified: 
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
 - packageId: com.unity.modules.subsystems@1.0.0
   testable: 0
   isDirectDependency: 0
@@ -2283,6 +2592,68 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 
+    nextVersion: 
+- packageId: com.unity.editorcoroutines@1.0.0
+  testable: 0
+  isDirectDependency: 0
+  version: 1.0.0
+  source: 1
+  resolvedPath: C:\Users\av3ro\source\repos\DeadlockMovement\DeadlockUnityProject\Library\PackageCache\com.unity.editorcoroutines@1.0.0
+  assetPath: Packages/com.unity.editorcoroutines
+  name: com.unity.editorcoroutines
+  displayName: Editor Coroutines
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: 'The editor coroutines package allows developers to start constructs
+    similar to Unity''s monobehaviour based coroutines within the editor using abitrary
+    objects. '
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.0.1-preview.3
+    - 0.0.1-preview.4
+    - 0.0.1-preview.5
+    - 0.0.2-preview.1
+    - 0.1.0-preview.1
+    - 0.1.0-preview.2
+    - 1.0.0
+    - 1.0.1
+    - 1.1.0
+    compatible:
+    - 1.0.0
+    - 1.0.1
+    verified: 1.0.1
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - coroutine
+  - coroutines
+  - editor
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637232611380000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.editorcoroutines.git
+    revision: f67fc9992bbc7a553b17375de53a8b2db136528e
+    path: 
+  unityLifecycle:
+    version: 1.0.0
     nextVersion: 
 - packageId: com.unity.test-framework@1.1.33
   testable: 0
@@ -2418,6 +2789,200 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.1.33
+    nextVersion: 
+- packageId: com.unity.scriptablebuildpipeline@1.20.1
+  testable: 0
+  isDirectDependency: 0
+  version: 1.20.1
+  source: 1
+  resolvedPath: C:\Users\av3ro\source\repos\DeadlockMovement\DeadlockUnityProject\Library\PackageCache\com.unity.scriptablebuildpipeline@1.20.1
+  assetPath: Packages/com.unity.scriptablebuildpipeline
+  name: com.unity.scriptablebuildpipeline
+  displayName: Scriptable Build Pipeline
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: The Scriptable Build Pipeline moves the asset bundle build pipeline
+    to C#.  Use the pre-defined build flows, or create your own using the divided
+    up APIs.  This system improves build time, fixes incremental build, and provides
+    greater flexibility.
+  status: 0
+  errors: []
+  versions:
+    all:
+    - 0.0.5-preview
+    - 0.0.6-preview
+    - 0.0.8-preview
+    - 0.0.9-preview
+    - 0.0.10-preview
+    - 0.0.14-preview
+    - 0.0.15-preview
+    - 0.1.0-preview
+    - 0.2.0-preview
+    - 1.0.1-preview
+    - 1.1.0-preview
+    - 1.1.1-preview
+    - 1.2.1-preview
+    - 1.3.5-preview
+    - 1.4.1-preview
+    - 1.5.0-preview
+    - 1.5.1
+    - 1.5.2
+    - 1.5.4
+    - 1.5.6
+    - 1.5.10
+    - 1.6.3-preview
+    - 1.6.4-preview
+    - 1.6.5-preview
+    - 1.7.2
+    - 1.7.3
+    - 1.8.2
+    - 1.8.4
+    - 1.8.6
+    - 1.9.0
+    - 1.10.0
+    - 1.11.1
+    - 1.11.2
+    - 1.12.0
+    - 1.13.1
+    - 1.14.0
+    - 1.14.1
+    - 1.15.1
+    - 1.15.2
+    - 1.16.1
+    - 1.17.0
+    - 1.18.0
+    - 1.19.0
+    - 1.19.1
+    - 1.19.2
+    - 1.19.3
+    - 1.19.4
+    - 1.19.5
+    - 1.19.6
+    - 1.20.1
+    - 1.20.2
+    - 1.21.0
+    - 1.21.1
+    - 1.21.2
+    - 1.21.3
+    - 1.21.5
+    - 1.21.7
+    - 1.21.8
+    - 1.21.9
+    - 1.21.20
+    - 1.21.21
+    - 1.21.22
+    - 1.21.23
+    - 1.21.24
+    - 1.21.25
+    - 1.22.1
+    - 1.22.2
+    - 1.22.4
+    - 1.22.5
+    - 1.23.0
+    - 1.23.1
+    - 1.23.2
+    - 1.23.3
+    - 1.23.4
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.2
+    - 2.1.3
+    - 2.1.4
+    - 2.1.5
+    - 2.2.4
+    - 2.2.11
+    - 2.3.0
+    - 2.3.1
+    - 2.3.2
+    - 2.3.3
+    - 2.3.4
+    - 2.3.5
+    - 2.3.6
+    - 2.3.7
+    - 2.3.8
+    - 2.4.0
+    - 2.4.1
+    - 2.4.2
+    - 2.4.3
+    - 2.5.0
+    - 2.5.1
+    - 2.5.2
+    - 2.6.0
+    - 2.6.1
+    - 3.0.0
+    - 3.0.1
+    - 3.0.2
+    - 3.1.0
+    - 3.1.1
+    compatible:
+    - 1.20.1
+    - 1.20.2
+    - 1.21.0
+    - 1.21.1
+    - 1.21.2
+    - 1.21.3
+    - 1.21.5
+    - 1.21.7
+    - 1.21.8
+    - 1.21.9
+    - 1.21.20
+    - 1.21.21
+    - 1.21.22
+    - 1.21.23
+    - 1.21.24
+    - 1.21.25
+    - 1.22.1
+    - 1.22.2
+    - 1.22.4
+    - 1.22.5
+    - 1.23.0
+    - 1.23.1
+    - 1.23.2
+    - 1.23.3
+    - 1.23.4
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.2
+    - 2.1.3
+    - 2.1.4
+    - 2.1.5
+    - 2.2.4
+    verified: 1.20.2
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - build
+  - bundle
+  - bundles
+  - assetbundles
+  - cache
+  - server
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 637874640850000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/Addressables.git
+    revision: f2d9aac4eb254f268ff4e23f800ccc30c53dbd75
+    path: 
+  unityLifecycle:
+    version: 1.20.1
     nextVersion: 
 - packageId: com.unity.ext.nunit@1.0.6
   testable: 0
