@@ -2,8 +2,13 @@ using BepInEx;
 using DeadlockMovementAPI.Contents;
 using R2API;
 using RoR2;
+using System.Security.Permissions;
+using System.Security;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+
+[module: UnverifiableCode]
+[assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 
 namespace DeadlockMovementAPI
 {

@@ -1,8 +1,24 @@
 {
   "dependencies": {
+    "com.passivepicasso.thunderkit": {
+      "version": "https://github.com/PassivePicasso/ThunderKit.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.scriptablebuildpipeline": "1.16.1"
+      },
+      "hash": "a9b134ef928b4bbb9f03a73ecb64e61c36f49d6c"
+    },
     "com.unity.assetbundlebrowser": {
       "version": "1.7.0",
       "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.editorcoroutines": {
+      "version": "1.0.0",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -26,6 +42,20 @@
     "com.unity.ide.vscode": {
       "version": "1.2.5",
       "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.postprocessing": {
+      "version": "2.3.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.scriptablebuildpipeline": {
+      "version": "1.20.1",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -58,6 +88,28 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "riskofrain2": {
+      "version": "file:Risk of Rain 2",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "riskofthunder-ror2editorkit": {
+      "version": "https://github.com/risk-of-thunder/RoR2EditorKit.git#5.6.6",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.editorcoroutines": "1.0.0"
+      },
+      "hash": "e32ccf42313fc99056d3fc8f0d243e37d5074bbb"
+    },
+    "riskofthunder-ror2importextensions": {
+      "version": "https://github.com/risk-of-thunder/RoR2ImportExtensions.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "477ad9b52e66e59080049fc3a65645ddb4db2cef"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

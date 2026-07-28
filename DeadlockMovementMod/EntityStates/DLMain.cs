@@ -25,13 +25,10 @@ namespace DeadlockMovementAPI.EntityStates
 
             if (isAuthority)
             {
-
-
                 if (characterMotor.Motor.GroundingStatus.IsStableOnGround && characterBody.HasBuff(DLBuffs.hiddenHasDashed))
                 {
                     characterBody.RemoveBuff(DLBuffs.hiddenHasDashed);
                 }
-
 
                 if (stopWatch > 0.5f)
                 {
@@ -115,7 +112,7 @@ namespace DeadlockMovementAPI.EntityStates
             _ = base.isGrounded;
             if (!hasRailMotor && hasCharacterDirection && hasCharacterBody)
             {
-                if (hasAimAnimator && aimAnimator.aimType == AimAnimator.AimType.Smart)
+                if (base.hasAimAnimator && aimAnimator.aimType == AimAnimator.AimType.Smart)
                 {
                     Vector3 vector = ((moveVector == Vector3.zero) ? base.characterDirection.forward : moveVector);
                     float num = Vector3.Angle(aimDirection, vector);
