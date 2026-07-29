@@ -59,9 +59,9 @@ namespace DeadlockMovementAPI
 
         private void RecalculateStatsAPI_GetStatCoefficients(CharacterBody sender, RecalculateStatsAPI.StatHookEventArgs args)
         {
-            if (sender.HasBuff(DLBuffs.fauxMovementBuff))
+            if (sender.HasBuff(DLBuffs.movementBuff))
             {
-                args.moveSpeedTotalMult += 0.05f;
+                args.moveSpeedTotalMult += 0.1f;
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Text;
 using DeadlockMovementAPI.Modules;
 using UnityEngine;
 using DeadlockMovementAPI.Contents;
+using UnityEngine.Networking;
 
 namespace DeadlockMovementAPI.EntityStates
 {
@@ -27,6 +28,8 @@ namespace DeadlockMovementAPI.EntityStates
 
         public GameObject slideInstance;
 
+        private int cachedStocksToConsume = 0;
+
         public override void OnEnter()
         {
             idealDirection = characterDirection.forward;
@@ -38,9 +41,11 @@ namespace DeadlockMovementAPI.EntityStates
             characterBody.isSprinting = true;
 
 
-            slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition, Quaternion.identity, modelLocator.modelBaseTransform);
+            slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition + new Vector3(0, 0.5f, 0), Quaternion.Euler(idealDirection.x, characterBody.footPosition.y + 0.1f, idealDirection.z), modelLocator.modelBaseTransform);
 
             base.OnEnter();
+
+            TryGiveInfiniteAmmo();
 
             resultStart = 1.4f * moveSpeedStat;
 
@@ -54,6 +59,9 @@ namespace DeadlockMovementAPI.EntityStates
             GetModelAnimator().SetBool("isSliding", false);
             GameObject.Destroy(slideInstance);
             base.characterMotor.moveDirection = moveVector;
+
+            TryRemoveInfiniteAmmo();
+
             base.OnExit();
         }
 
@@ -65,18 +73,22 @@ namespace DeadlockMovementAPI.EntityStates
                 GetModelAnimator().SetBool("isSliding", characterMotor.isGrounded);
 
 
-
+                // Handling the deletion of slide instance
                 if (!isGrounded && slideInstance)
                 {
                     GameObject.Destroy(slideInstance);
+
+                    TryRemoveInfiniteAmmo();
                 }
                 else if (isGrounded && !slideInstance)
                 {
-                    slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition, Quaternion.Euler(travelDirection), modelLocator.modelBaseTransform);
+                    slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition + new Vector3(0, 0.5f, 0), Quaternion.Euler(IdealDirection().x, characterBody.footPosition.y + 0.1f, IdealDirection().z), modelLocator.modelBaseTransform);
+
+                    TryGiveInfiniteAmmo();
                 }
 
 
-                if (inputBank.sprint.justPressed || (finalSpeed <= moveSpeedStat && characterMotor.isGrounded))
+                if (inputBank.sprint.justPressed || finalSpeed <= moveSpeedStat)
                 {
                     outer.SetNextStateToMain();
                     return;
@@ -88,7 +100,7 @@ namespace DeadlockMovementAPI.EntityStates
 
                     if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) >= 0.01f) // Checks if going downhill or on flat ground before allowing extra momentum gain
                     {
-                        currentMomentum += 6f;
+                        currentMomentum += AdjustedRate(6f);
                     }
                 }
 
@@ -96,9 +108,10 @@ namespace DeadlockMovementAPI.EntityStates
 
                 travelDirection = (IdealDirection() * finalSpeed) * GetDeltaTime();
 
+
                 if (slideInstance)
                 {
-                    slideInstance.transform.rotation = Quaternion.Euler(travelDirection);
+                    slideInstance.transform.rotation = Quaternion.LookRotation(new Vector3(travelDirection.x, 0, travelDirection.z), transform.up);
                 }
 
                 characterMotor.rootMotion += travelDirection;
@@ -136,7 +149,7 @@ namespace DeadlockMovementAPI.EntityStates
         {
             if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) > 0.1f)
             {
-                currentMomentum += downBuild * GetDeltaTime();
+                currentMomentum += AdjustedRate(downBuild) * GetDeltaTime();
             }
             else if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) < -0.1f)
             {
@@ -144,7 +157,10 @@ namespace DeadlockMovementAPI.EntityStates
             }
             else
             {
-                currentMomentum -= groundDecay * GetDeltaTime();
+                if (isGrounded)
+                {
+                    currentMomentum -= groundDecay * GetDeltaTime();
+                }
             }
 
             finalSpeed = currentMomentum;
@@ -160,6 +176,11 @@ namespace DeadlockMovementAPI.EntityStates
         {
         }
 
+        private float AdjustedRate(float input)
+        {
+            return input * (moveSpeedStat/((characterBody.baseMoveSpeed * characterBody.sprintingSpeedMultiplier) * 1.1f));
+        }
+
         public override void GatherInputs()
         {
             if (hasInputBank)
@@ -171,6 +192,32 @@ namespace DeadlockMovementAPI.EntityStates
                 jumpInputReceived |= base.inputBank.jump.justPressed;
                 jumpInputReceived &= !base.inputBank.jump.hasPressBeenClaimed;
                 sprintInputReceived = base.inputBank.sprint.down;
+            }
+        }
+
+        public void TryGiveInfiniteAmmo()
+        {
+            if (skillLocator.primary.skillDef.stockToConsume > 0)
+            {
+                if (NetworkServer.active)
+                {
+                    characterBody.AddBuff(DLBuffs.slideInfiniteAmmoBuff);
+                }
+                cachedStocksToConsume = skillLocator.primary.skillDef.stockToConsume;
+                skillLocator.primary.skillDef.stockToConsume = 0;
+            }
+
+        }
+
+        public void TryRemoveInfiniteAmmo()
+        {
+            if (cachedStocksToConsume > 0)
+            {
+                if (NetworkServer.active)
+                {
+                    characterBody.RemoveBuff(DLBuffs.slideInfiniteAmmoBuff);
+                }
+                skillLocator.primary.skillDef.stockToConsume = cachedStocksToConsume;
             }
         }
     }

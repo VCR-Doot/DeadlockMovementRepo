@@ -14,6 +14,7 @@ namespace DeadlockMovementAPI.EntityStates
     {
         public float stopWatch;
 
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -32,9 +33,9 @@ namespace DeadlockMovementAPI.EntityStates
 
                 if (stopWatch > 0.5f)
                 {
-                    if (!characterBody.HasBuff(DLBuffs.fauxMovementBuff))
+                    if (!characterBody.HasBuff(DLBuffs.movementBuff))
                     {
-                        characterBody.AddBuff(DLBuffs.fauxMovementBuff);
+                        characterBody.AddBuff(DLBuffs.movementBuff);
                     }
                     if (inputBank.sprint.justPressed)
                     {
@@ -43,9 +44,9 @@ namespace DeadlockMovementAPI.EntityStates
                 }
                 else
                 {
-                    if (characterBody.HasBuff(DLBuffs.fauxMovementBuff))
+                    if (characterBody.HasBuff(DLBuffs.movementBuff))
                     {
-                        characterBody.RemoveBuff(DLBuffs.fauxMovementBuff);
+                        characterBody.RemoveBuff(DLBuffs.movementBuff);
                     }
                 }
 
@@ -63,9 +64,14 @@ namespace DeadlockMovementAPI.EntityStates
         {
             if (characterMotor.isGrounded)
             {
-                if (moveSpeedStat >= 11 || Helpers.GetEstimatedMomentum(characterMotor) >= 0.5f)
+                if (Helpers.GetEstimatedMomentum(characterMotor) >= 0.5f)
                 {
-                    outer.SetNextState(new Slide());
+                    outer.SetNextState(SlideState());
+                    return;
+                }
+                else
+                {
+                    outer.SetNextState(RollState());
                     return;
                 }
             }
@@ -74,7 +80,7 @@ namespace DeadlockMovementAPI.EntityStates
                 if (!characterBody.HasBuff(DLBuffs.hiddenHasDashed))
                 {
                     characterBody.AddBuff(DLBuffs.hiddenHasDashed);
-                    outer.SetNextState(new Dash());
+                    outer.SetNextState(DashState());
                     return;
                 }
             }
@@ -160,5 +166,21 @@ namespace DeadlockMovementAPI.EntityStates
 
             return Util.CharacterSpherecast(gameObject, mond, 0.5f, out hit, 0.5f, LayerIndex.world.mask, QueryTriggerInteraction.Collide);
         } // Near wall checl?
+
+
+        public virtual EntityState SlideState()
+        {
+            return new Slide();
+        }
+
+        public virtual EntityState RollState() // This needs updated when Roll is added
+        {
+            return new Slide();
+        }
+
+        public virtual EntityState DashState()
+        {
+            return new Dash();
+        }
     }
 }

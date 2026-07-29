@@ -5,14 +5,16 @@ namespace DeadlockMovementAPI.Contents
 {
     public static class DLBuffs
     {
-        public static BuffDef fauxMovementBuff; //This buff does nothing but indicate that the expanded movements are available
+        public static BuffDef movementBuff; //Buff to indicate that the movement stuff is active and give a 10% total move speed multi
+
+        public static BuffDef slideInfiniteAmmoBuff; //Buff to indicate and reference for infinite m1 stocks if applicible (m1 must have minimum 1 stockToConsume)
 
         public static BuffDef hiddenHasDashed; // Hidden buff to detect when a has been detected
 
 
         public static void Init(AssetBundle assetBundle)
         {
-            fauxMovementBuff = Modules.Content.CreateAndAddBuff("FauxMovementBuff",
+            movementBuff = Modules.Content.CreateAndAddBuff("DLMovementBuff",
                 LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite,
                 Color.white,
                 false,

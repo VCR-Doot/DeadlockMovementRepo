@@ -45,13 +45,13 @@ namespace DeadlockMovementAPI.Contents
 
         private static void CreateSlideEffects()
         {
-            slideEffect = _assetBundle.LoadAsset<GameObject>("SlideVFX");
+            slideEffect = _assetBundle.LoadAsset<GameObject>("SlideFX");
             MeshRenderer r = slideEffect.transform.GetChild(0).GetComponent<MeshRenderer>();
 
-            //if (r)
-            //{
-            //    r.sharedMaterial = 
-            //}
+            if (r)
+            {
+                r.sharedMaterial = Addressables.LoadAssetAsync<Material>("RoR2/Base/Common/VFX/matGenericSmoke.mat").WaitForCompletion();
+            }
         }
 
         #endregion effects
