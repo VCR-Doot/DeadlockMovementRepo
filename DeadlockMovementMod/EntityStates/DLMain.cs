@@ -50,7 +50,7 @@ namespace DeadlockMovementAPI.EntityStates
 
         public override void FixedUpdate()
         {
-            WallJumpCheck();
+            bool result = WallJumpCheck();
 
             if (isAuthority)
             {
