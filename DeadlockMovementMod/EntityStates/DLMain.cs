@@ -13,9 +13,9 @@ namespace DeadlockMovementAPI.EntityStates
     public class DLMain : GenericCharacterMain
     {
         public float stopWatch;
-        public List<Vector3> lod0 = new List<Vector3>();
-        public List<Vector3> lod1 = new List<Vector3>();
-        public List<Vector3> lod2 = new List<Vector3>();
+        public List<Vector3> directionChecks = new List<Vector3>();
+        public List<Vector3> checkList1 = new List<Vector3>();
+        public List<Vector3> checkList2 = new List<Vector3>();
 
         public override void OnEnter()
         {
@@ -31,20 +31,20 @@ namespace DeadlockMovementAPI.EntityStates
             //Assumes a forward direction
             //List of rotation modifiers to a Raycast, each checking a direction
 
-            lod0.Add(new Vector3(0f, 0f, 0f)); //North
-            lod0.Add(new Vector3(0f, 90f, 0f)); //East
-            lod0.Add(new Vector3(0f, 180f, 0f)); //South
-            lod0.Add(new Vector3(0f, 270f, 0f)); //West
+            directionChecks.Add(new Vector3(0f, 0f, 0f)); //North
+            directionChecks.Add(new Vector3(0f, 90f, 0f)); //East
+            directionChecks.Add(new Vector3(0f, 180f, 0f)); //South
+            directionChecks.Add(new Vector3(0f, 270f, 0f)); //West
 
-            lod1.Add(new Vector3(0f, 45f, 0f)); //Northeast
-            lod1.Add(new Vector3(0f, 135f, 0f)); //Southeast
-            lod1.Add(new Vector3(0f, 225f, 0f)); //Southwest
-            lod1.Add(new Vector3(0f, 315f, 0f)); //Northwest
+            checkList1.Add(new Vector3(0f, 45f, 0f)); //Northeast
+            checkList1.Add(new Vector3(0f, 135f, 0f)); //Southeast
+            checkList1.Add(new Vector3(0f, 225f, 0f)); //Southwest
+            checkList1.Add(new Vector3(0f, 315f, 0f)); //Northwest
 
-            lod2.Add(new Vector3(-45f, 0f, 0f)); //Corner North
-            lod2.Add(new Vector3(-45f, 90f, 0f)); //Corner East
-            lod2.Add(new Vector3(-45f, 180f, 0f)); //Corner South
-            lod2.Add(new Vector3(-45f, 270f, 0f)); //Corner West
+            checkList2.Add(new Vector3(-45f, 0f, 0f)); //Corner North
+            checkList2.Add(new Vector3(-45f, 90f, 0f)); //Corner East
+            checkList2.Add(new Vector3(-45f, 180f, 0f)); //Corner South
+            checkList2.Add(new Vector3(-45f, 270f, 0f)); //Corner West
 
         }
 
@@ -110,42 +110,29 @@ namespace DeadlockMovementAPI.EntityStates
         }
 
         //add parameter for level of detail return whether it's a wall jump
-        public RaycastHit WallJumpCheck()
+        public bool WallJumpCheck()
         {
             //Goal: Get the nearest face, then average with adjacent faces, 
-            bool lod1Checks = false;
-            bool lod2Checks = false;
+            bool checkList1Enabled = false;
+            bool checkList2Enabled = false;
 
-            //Adds each node from previous runs, better for simple wall bounce checking
-            if (lod1Checks) 
-                foreach (var wallcheck in lod1)
-                    lod0.Add(wallcheck);
+            if (checkList1Enabled) 
+                foreach (var wallcheck in checkList1)
+                    directionChecks.Add(wallcheck);
 
-            if (lod2Checks)
-                foreach (var wallcheck in lod2)
-                    lod0.Add(wallcheck);
-
-            bool foundWall = false;
-            var closestDistance = 0.0f;
-            RaycastHit closestWall = default; 
+            if (checkList2Enabled)
+                foreach (var wallcheck in checkList2)
+                    directionChecks.Add(wallcheck);
 
             //Check each node, if one is closer it becomes cached for final decision
-            foreach (var check in lod0)
+            foreach (var check in directionChecks)
             {
-                var checksRotation = Quaternion.Euler(check.x, check.y, check.z) * GetAimRay().direction.normalized;
-                Ray mond = new Ray(gameObject.transform.position, checksRotation);
-                RaycastHit hit;
-
-                if(Util.CharacterSpherecast(gameObject, mond, 0.5f, out hit, 0.5f, LayerIndex.world.mask, QueryTriggerInteraction.Collide))
+                if (NearWall(check))
                 {
-                    foundWall = true;
-                    if(hit.distance < closestDistance)
-                        closestWall = hit;
-                        closestDistance = hit.distance;
+                    return true;
                 }
             }
-            if (foundWall) return closestWall;
-            return default;
+            return false;
 
         }
 
