@@ -17,7 +17,8 @@ Due to a known bug regarding sprint input the survivor should also have the Spri
 Currently all custom states utilize animations on the "FullBody, Override" layer. This is planned to be updated to it's own layer for certain animations (namely Sliding) to allow for other layers to still function (such as using skills during slide). The following are the names and layers for each movement animation call
 \* "FullBody, Override", "Slide"
 \* "FullBody, Override", "Dash"
-\* "FullBody, Override", "DashJump"
+\* "FullBody, Override", "WallJump"
+\* "FullBody, Override", "Mantle"
 
 
 

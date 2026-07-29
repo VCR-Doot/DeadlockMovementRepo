@@ -1,4 +1,4 @@
-﻿using RoR2;
+using RoR2;
 using RoR2.ContentManagement;
 using RoR2.Skills;
 using System;
@@ -30,7 +30,7 @@ namespace DeadlockMovementAPI.Modules {
 
         public System.Collections.IEnumerator LoadStaticContentAsync(LoadStaticContentAsyncArgs args)
         {
-            this.contentPack.identifier = this.identifier;
+            //this.contentPack.identifier = this.identifier;
 
             contentPack.entityStateTypes.Add(entityStates.ToArray());
 

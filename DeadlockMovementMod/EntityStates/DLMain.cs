@@ -1,4 +1,4 @@
-﻿using EntityStates;
+using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -13,16 +13,47 @@ namespace DeadlockMovementAPI.EntityStates
     public class DLMain : GenericCharacterMain
     {
         public float stopWatch;
+        public List<Vector3> directionChecks = new List<Vector3>();
+        public List<Vector3> checkList1 = new List<Vector3>();
+        public List<Vector3> checkList2 = new List<Vector3>();
 
 
         public override void OnEnter()
         {
             base.OnEnter();
+
+            characterBody.bodyFlags |= CharacterBody.BodyFlags.SprintAnyDirection;
+
+            //
+            //Level of detail:
+            //0: north, east, south, west added (default)
+            //1: northeast, southeast, southwest, northwest added
+            //2: downward tilts added, effectively a cornerboost check
+            // upward diagonals reserved for ledge-climb detection
+
+            //Assumes a forward direction
+            //List of rotation modifiers to a Raycast, each checking a direction
+
+            directionChecks.Add(new Vector3(0f, 0f, 0f)); //North
+            directionChecks.Add(new Vector3(0f, 90f, 0f)); //East
+            directionChecks.Add(new Vector3(0f, 180f, 0f)); //South
+            directionChecks.Add(new Vector3(0f, 270f, 0f)); //West
+
+            checkList1.Add(new Vector3(0f, 45f, 0f)); //Northeast
+            checkList1.Add(new Vector3(0f, 135f, 0f)); //Southeast
+            checkList1.Add(new Vector3(0f, 225f, 0f)); //Southwest
+            checkList1.Add(new Vector3(0f, 315f, 0f)); //Northwest
+
+            checkList2.Add(new Vector3(-45f, 0f, 0f)); //Corner North
+            checkList2.Add(new Vector3(-45f, 90f, 0f)); //Corner East
+            checkList2.Add(new Vector3(-45f, 180f, 0f)); //Corner South
+            checkList2.Add(new Vector3(-45f, 270f, 0f)); //Corner West
+
         }
 
         public override void FixedUpdate()
         {
-            WallJumpCheck();
+            bool result = WallJumpCheck();
 
             if (isAuthority)
             {
@@ -86,8 +117,30 @@ namespace DeadlockMovementAPI.EntityStates
             }
         }
 
-        public void WallJumpCheck()
+        //add parameter for level of detail return whether it's a wall jump
+        public bool WallJumpCheck()
         {
+            //Goal: Get the nearest face, then average with adjacent faces, 
+            bool checkList1Enabled = false;
+            bool checkList2Enabled = false;
+
+            if (checkList1Enabled) 
+                foreach (var wallcheck in checkList1)
+                    directionChecks.Add(wallcheck);
+
+            if (checkList2Enabled)
+                foreach (var wallcheck in checkList2)
+                    directionChecks.Add(wallcheck);
+
+            //Check each node, if one is closer it becomes cached for final decision
+            foreach (var check in directionChecks)
+            {
+                if (NearWall(check))
+                {
+                    return true;
+                }
+            }
+            return false;
 
         }
 
@@ -159,9 +212,10 @@ namespace DeadlockMovementAPI.EntityStates
             }
         } // Enable autosprint
 
-        public bool NearWall()
+        public bool NearWall(Vector3 check = default)
         {
-            Ray mond = new Ray(gameObject.transform.position, GetAimRay().direction.normalized);
+            var rayRotation = Quaternion.Euler(check.x, check.y, check.z) * GetAimRay().direction.normalized;
+            Ray mond = new Ray(gameObject.transform.position, rayRotation);
             RaycastHit hit;
 
             return Util.CharacterSpherecast(gameObject, mond, 0.5f, out hit, 0.5f, LayerIndex.world.mask, QueryTriggerInteraction.Collide);

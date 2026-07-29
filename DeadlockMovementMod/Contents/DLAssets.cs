@@ -1,4 +1,4 @@
-﻿using RoR2;
+using RoR2;
 using UnityEngine;
 using System;
 using RoR2.Projectile;
