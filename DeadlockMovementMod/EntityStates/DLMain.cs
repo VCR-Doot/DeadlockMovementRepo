@@ -1,4 +1,4 @@
-﻿using EntityStates;
+using EntityStates;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -13,10 +13,39 @@ namespace DeadlockMovementAPI.EntityStates
     public class DLMain : GenericCharacterMain
     {
         public float stopWatch;
+        public List<Vector3> lod0 = new List<Vector3>();
+        public List<Vector3> lod1 = new List<Vector3>();
+        public List<Vector3> lod2 = new List<Vector3>();
 
         public override void OnEnter()
         {
             base.OnEnter();
+
+            //
+            //Level of detail:
+            //0: north, east, south, west added (default)
+            //1: northeast, southeast, southwest, northwest added
+            //2: downward tilts added, effectively a cornerboost check
+            // upward diagonals reserved for ledge-climb detection
+
+            //Assumes a forward direction
+            //List of rotation modifiers to a Raycast, each checking a direction
+
+            lod0.Add(new Vector3(0f, 0f, 0f)); //North
+            lod0.Add(new Vector3(0f, 90f, 0f)); //East
+            lod0.Add(new Vector3(0f, 180f, 0f)); //South
+            lod0.Add(new Vector3(0f, 270f, 0f)); //West
+
+            lod1.Add(new Vector3(0f, 45f, 0f)); //Northeast
+            lod1.Add(new Vector3(0f, 135f, 0f)); //Southeast
+            lod1.Add(new Vector3(0f, 225f, 0f)); //Southwest
+            lod1.Add(new Vector3(0f, 315f, 0f)); //Northwest
+
+            lod2.Add(new Vector3(-45f, 0f, 0f)); //Corner North
+            lod2.Add(new Vector3(-45f, 90f, 0f)); //Corner East
+            lod2.Add(new Vector3(-45f, 180f, 0f)); //Corner South
+            lod2.Add(new Vector3(-45f, 270f, 0f)); //Corner West
+
         }
 
         public override void FixedUpdate()
@@ -80,8 +109,43 @@ namespace DeadlockMovementAPI.EntityStates
             }
         }
 
-        public void WallJumpCheck()
+        //add parameter for level of detail return whether it's a wall jump
+        public RaycastHit WallJumpCheck()
         {
+            //Goal: Get the nearest face, then average with adjacent faces, 
+            bool lod1Checks = false;
+            bool lod2Checks = false;
+
+            //Adds each node from previous runs, better for simple wall bounce checking
+            if (lod1Checks) 
+                foreach (var wallcheck in lod1)
+                    lod0.Add(wallcheck);
+
+            if (lod2Checks)
+                foreach (var wallcheck in lod2)
+                    lod0.Add(wallcheck);
+
+            bool foundWall = false;
+            var closestDistance = 0.0f;
+            RaycastHit closestWall = default; 
+
+            //Check each node, if one is closer it becomes cached for final decision
+            foreach (var check in lod0)
+            {
+                var checksRotation = Quaternion.Euler(check.x, check.y, check.z) * GetAimRay().direction.normalized;
+                Ray mond = new Ray(gameObject.transform.position, checksRotation);
+                RaycastHit hit;
+
+                if(Util.CharacterSpherecast(gameObject, mond, 0.5f, out hit, 0.5f, LayerIndex.world.mask, QueryTriggerInteraction.Collide))
+                {
+                    foundWall = true;
+                    if(hit.distance < closestDistance)
+                        closestWall = hit;
+                        closestDistance = hit.distance;
+                }
+            }
+            if (foundWall) return closestWall;
+            return default;
 
         }
 
@@ -153,9 +217,10 @@ namespace DeadlockMovementAPI.EntityStates
             }
         } // Enable autosprint
 
-        public bool NearWall()
+        public bool NearWall(Vector3 check = default)
         {
-            Ray mond = new Ray(gameObject.transform.position, GetAimRay().direction.normalized);
+            var rayRotation = Quaternion.Euler(check.x, check.y, check.z) * GetAimRay().direction.normalized;
+            Ray mond = new Ray(gameObject.transform.position, rayRotation);
             RaycastHit hit;
 
             return Util.CharacterSpherecast(gameObject, mond, 0.5f, out hit, 0.5f, LayerIndex.world.mask, QueryTriggerInteraction.Collide);

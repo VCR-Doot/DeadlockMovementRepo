@@ -1,4 +1,4 @@
-﻿using RoR2;
+using RoR2;
 using UnityEngine;
 using System;
 using RoR2.Projectile;
@@ -45,7 +45,7 @@ namespace DeadlockMovementAPI.Contents
 
         private static void CreateSlideEffects()
         {
-            slideEffect = _assetBundle.LoadAsset<GameObject>("SlideVFX");
+            slideEffect = _assetBundle.LoadAsset<GameObject>("SlideFX");
             MeshRenderer r = slideEffect.transform.GetChild(0).GetComponent<MeshRenderer>();
 
             //if (r)
