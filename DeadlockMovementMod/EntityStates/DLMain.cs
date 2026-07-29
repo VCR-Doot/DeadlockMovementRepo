@@ -21,6 +21,8 @@ namespace DeadlockMovementAPI.EntityStates
         {
             base.OnEnter();
 
+            characterBody.bodyFlags |= CharacterBody.BodyFlags.SprintAnyDirection;
+
             //
             //Level of detail:
             //0: north, east, south, west added (default)
