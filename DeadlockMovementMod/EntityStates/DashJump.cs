@@ -1,10 +1,12 @@
-﻿using System;
+﻿using EntityStates;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DeadlockMovementAPI.EntityStates
 {
-    internal class DashJump
+    public class DashJump: BaseState
     {
+
     }
 }

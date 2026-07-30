@@ -8,6 +8,7 @@ namespace DeadlockMovementAPI.Contents
         {
 
             Modules.Content.AddEntityState(typeof(DLMain));
+            Modules.Content.AddEntityState(typeof(Roll));
             Modules.Content.AddEntityState(typeof(Dash));
             Modules.Content.AddEntityState(typeof(DashJump));
             Modules.Content.AddEntityState(typeof(Slide));

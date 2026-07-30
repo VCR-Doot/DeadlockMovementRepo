@@ -95,7 +95,9 @@ namespace DeadlockMovementAPI.EntityStates
         {
             if (characterMotor.isGrounded)
             {
-                if (Helpers.GetEstimatedMomentum(characterMotor) >= 0.5f)
+                Log.Debug(Helpers.GetEstimatedMomentum(characterMotor));
+
+                if (Helpers.GetEstimatedMomentum(characterMotor) >= 0.5f && characterMotor.velocity.magnitude >= (characterBody.baseMoveSpeed * characterBody.sprintingSpeedMultiplier))
                 {
                     outer.SetNextState(SlideState());
                     return;
@@ -229,7 +231,7 @@ namespace DeadlockMovementAPI.EntityStates
 
         public virtual EntityState RollState() // This needs updated when Roll is added
         {
-            return new Slide();
+            return new Roll();
         }
 
         public virtual EntityState DashState()
