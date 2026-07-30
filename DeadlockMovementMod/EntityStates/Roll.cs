@@ -10,9 +10,9 @@ namespace DeadlockMovementAPI.EntityStates
 {
     public class Roll: BaseState
     {
-        public static float duration = 0.5f;
-        public static float initialSpeedCoefficient = 5f;
-        public static float finalSpeedCoefficient = 2.5f;
+        public static float duration = 0.72f;
+        public static float initialSpeedCoefficient = 4f;
+        public static float finalSpeedCoefficient = 0.75f;
 
         public static string dodgeSoundString = "Play_Deadlock_Roll";
 
@@ -25,15 +25,23 @@ namespace DeadlockMovementAPI.EntityStates
 
         private GameObject slideEffectInstance;
 
+        private Rewired.Player player;
+
         public override void OnEnter()
         {
+
             base.OnEnter();
+
+            player = characterBody.master.playerCharacterMasterController.networkUser.inputPlayer;
+
             animator = GetModelAnimator();
 
             if (isAuthority && inputBank && characterDirection)
             {
                 forwardDirection = (inputBank.moveVector == Vector3.zero ? characterDirection.forward : inputBank.moveVector).normalized;
             }
+
+            characterBody.isSprinting = true;
 
             Vector3 rhs = characterDirection ? characterDirection.forward : forwardDirection;
             Vector3 rhs2 = Vector3.Cross(Vector3.up, rhs);
@@ -88,6 +96,13 @@ namespace DeadlockMovementAPI.EntityStates
 
             if (isAuthority && fixedAge >= duration)
             {
+                if (player.GetButton(18) && isGrounded)
+                {
+                    outer.SetNextState(new Slide { startCoefficient = 2.5f});
+                    return;
+                }
+
+
                 outer.SetNextStateToMain();
                 return;
             }

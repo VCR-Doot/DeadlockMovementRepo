@@ -9,9 +9,9 @@ namespace DeadlockMovementAPI.EntityStates
 {
     public class Dash : BaseSkillState
     {
-        public static float initialDashSpeed = 6f;
+        public static float initialDashSpeed = 4f;
         public static float finalDashSpeed = 3f;
-        public static float baseDuration = 0.15f;
+        public static float baseDuration = 0.51f;
         public static string soundString = "Play_Deadlock_Dash";
 
         public GameObject dustInstance;
@@ -25,6 +25,7 @@ namespace DeadlockMovementAPI.EntityStates
         public override void OnEnter()
         {
             base.OnEnter();
+
             duration = baseDuration;
             
             PlayDashAnimation();

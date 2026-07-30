@@ -17,10 +17,15 @@ namespace DeadlockMovementAPI.EntityStates
         public List<Vector3> checkList1 = new List<Vector3>();
         public List<Vector3> checkList2 = new List<Vector3>();
 
+        private Rewired.Player player;
+
+        private InputBankTest.ButtonState sprintButton = new InputBankTest.ButtonState();
 
         public override void OnEnter()
         {
             base.OnEnter();
+
+            player = characterBody.master.playerCharacterMasterController.networkUser.inputPlayer;
 
             characterBody.bodyFlags |= CharacterBody.BodyFlags.SprintAnyDirection;
 
@@ -62,15 +67,11 @@ namespace DeadlockMovementAPI.EntityStates
                     characterBody.RemoveBuff(DLBuffs.hiddenHasDashed);
                 }
 
-                if (stopWatch > 0.5f)
+                if (stopWatch > 0.8f)
                 {
                     if (!characterBody.HasBuff(DLBuffs.movementBuff))
                     {
                         characterBody.AddBuff(DLBuffs.movementBuff);
-                    }
-                    if (inputBank.sprint.justPressed)
-                    {
-                        TrySprintInput();
                     }
                 }
                 else
@@ -79,6 +80,11 @@ namespace DeadlockMovementAPI.EntityStates
                     {
                         characterBody.RemoveBuff(DLBuffs.movementBuff);
                     }
+                }
+
+                if (sprintButton.justPressed && stopWatch >= 0.05f)
+                {
+                    TrySprintInput();
                 }
 
                 if (characterBody && characterBody.isSprinting)
@@ -91,13 +97,19 @@ namespace DeadlockMovementAPI.EntityStates
             base.FixedUpdate();
         }
 
+        public override void GatherInputs()
+        {
+            base.GatherInputs();
+            sprintButton.PushState(player.GetButton(18));
+        }
+
         public void TrySprintInput()
         {
             if (characterMotor.isGrounded)
             {
-                Log.Debug(Helpers.GetEstimatedMomentum(characterMotor));
+                Log.Debug("Sprint Input call: " + Helpers.GetEstimatedMomentum(characterMotor));
 
-                if (Helpers.GetEstimatedMomentum(characterMotor) >= 0.5f && characterMotor.velocity.magnitude >= (characterBody.baseMoveSpeed * characterBody.sprintingSpeedMultiplier))
+                if (Helpers.GetEstimatedMomentum(characterMotor) >= 0.9f)
                 {
                     outer.SetNextState(SlideState());
                     return;
@@ -194,7 +206,7 @@ namespace DeadlockMovementAPI.EntityStates
             {
                 bool isSprinting = sprintInputReceived;
 
-                if (stopWatch >= 0.5f)
+                if (stopWatch >= 0.1f)
                 {
                     base.characterBody.isSprinting = true;
 

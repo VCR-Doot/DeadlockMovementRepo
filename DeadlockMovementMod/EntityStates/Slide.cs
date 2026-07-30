@@ -15,6 +15,7 @@ namespace DeadlockMovementAPI.EntityStates
         // Speeds
         private float resultStart;
         private float finalSpeed;
+        public float startCoefficient = 1.4f;
 
         public float groundDecay = 5;
         public float upDecay = 15;
@@ -22,16 +23,20 @@ namespace DeadlockMovementAPI.EntityStates
 
         private Vector3 idealDirection;
 
-        public float desiredMomentum = 0f;
         private float currentMomentum = 0f;
         private Vector3 travelDirection;
 
         public GameObject slideInstance;
 
+
         private int cachedStocksToConsume = 0;
+
+        private Rewired.Player player;
+
 
         public override void OnEnter()
         {
+
             idealDirection = characterDirection.forward;
 
             GetModelAnimator().SetBool("isSliding", true);
@@ -45,13 +50,18 @@ namespace DeadlockMovementAPI.EntityStates
 
             base.OnEnter();
 
+            player = characterBody.master.playerCharacterMasterController.networkUser.inputPlayer;
+
+
+            // Call infinite ammo attempt for primaries
             TryGiveInfiniteAmmo();
 
-            resultStart = 1.4f * moveSpeedStat;
+            // Result start calculated as your input velocity magnitude (effectively a simpler means than using just movement stat as it's possible to move faster without affecting the stat itself)
+            resultStart = startCoefficient * characterMotor.velocity.magnitude;
 
-            currentMomentum = resultStart; // Scale the starting speed with your movespeed * 1.4
+            currentMomentum = resultStart;
 
-            RecalcSpeed();
+            RecalcChangeRate();
         }
 
         public override void OnExit()
@@ -88,7 +98,7 @@ namespace DeadlockMovementAPI.EntityStates
                 }
 
 
-                if (inputBank.sprint.justPressed || finalSpeed <= moveSpeedStat)
+                if ((!player.GetButton(18) || finalSpeed <= 0.5f) && isGrounded)
                 {
                     outer.SetNextStateToMain();
                     return;
@@ -104,7 +114,11 @@ namespace DeadlockMovementAPI.EntityStates
                     }
                 }
 
-                RecalcSpeed();
+                // Adds a grace period for entering slide before rate can be reduced. Ideally this is moved into the function itself but for now this is a temp solution
+                if (fixedAge > 0.1f)
+                {
+                    RecalcChangeRate();
+                }
 
                 travelDirection = (IdealDirection() * finalSpeed) * GetDeltaTime();
 
@@ -145,25 +159,26 @@ namespace DeadlockMovementAPI.EntityStates
             return idealDirection;
         } // Updates the direction to be dampened over time
 
-        public void RecalcSpeed()
+        public virtual void RecalcChangeRate()
         {
-            if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) > 0.1f)
+            Log.Debug("Slide estimated momentum: " + Helpers.GetEstimatedMomentum(characterMotor));
+
+
+            if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) >= 0.1f)
             {
                 currentMomentum += AdjustedRate(downBuild) * GetDeltaTime();
             }
-            else if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) < -0.1f)
+            else if (Helpers.GetEstimatedMomentum(travelDirection, characterMotor) <= -0.6f)
             {
                 currentMomentum -= upDecay * GetDeltaTime();
             }
             else
             {
-                if (isGrounded)
-                {
-                    currentMomentum -= groundDecay * GetDeltaTime();
-                }
+                currentMomentum -= groundDecay * GetDeltaTime();
             }
+            
 
-            finalSpeed = currentMomentum;
+            finalSpeed = Mathf.Clamp(currentMomentum, 0, Mathf.Infinity);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
@@ -195,6 +210,7 @@ namespace DeadlockMovementAPI.EntityStates
             }
         }
 
+        [Tooltip("Attempt to fake infinite stocks for primaries that consume 1 or more on use.")]
         public void TryGiveInfiniteAmmo()
         {
             if (skillLocator.primary.skillDef.stockToConsume > 0)
@@ -209,6 +225,7 @@ namespace DeadlockMovementAPI.EntityStates
 
         }
 
+        [Tooltip("Removes the fake Infinite stocks. This wont do anything unless TryGiveInfiniteAmmo cached the primary skilldef's stockToConsume variable.")]
         public void TryRemoveInfiniteAmmo()
         {
             if (cachedStocksToConsume > 0)

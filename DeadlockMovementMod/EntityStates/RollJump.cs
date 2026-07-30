@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DeadlockMovementAPI.EntityStates
 {
-    public class DashJump: BaseState
+    public class RollJump: BaseState
     {
 
     }
