@@ -79,8 +79,8 @@ namespace DeadlockMovementAPI.EntityStates
         {
             if (isAuthority)
             {
-
-                GetModelAnimator().SetBool("isSliding", characterMotor.isGrounded);
+                if(finalSpeed > 2.5f) GetModelAnimator().SetBool("isSliding", characterMotor.isGrounded);
+                else GetModelAnimator().SetBool("isSliding", false);
 
 
                 // Handling the deletion of slide instance
@@ -98,7 +98,7 @@ namespace DeadlockMovementAPI.EntityStates
                 }
 
 
-                if ((!player.GetButton(18) || finalSpeed <= 0.5f) && isGrounded)
+                if ((!player.GetButton(18) || finalSpeed <= 2) && isGrounded)
                 {
                     outer.SetNextStateToMain();
                     return;

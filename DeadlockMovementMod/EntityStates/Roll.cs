@@ -94,15 +94,15 @@ namespace DeadlockMovementAPI.EntityStates
             }
             previousPosition = transform.position;
 
+
+            if (isAuthority && fixedAge >= 0.2f && player.GetButton(18) && isGrounded)
+            {
+                outer.SetNextState(new Slide { startCoefficient = 2.5f });
+                return;
+            }
+
             if (isAuthority && fixedAge >= duration)
             {
-                if (player.GetButton(18) && isGrounded)
-                {
-                    outer.SetNextState(new Slide { startCoefficient = 2.5f});
-                    return;
-                }
-
-
                 outer.SetNextStateToMain();
                 return;
             }
