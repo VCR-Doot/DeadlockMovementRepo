@@ -28,6 +28,9 @@ namespace DeadlockMovementAPI.EntityStates
 
         public GameObject slideInstance;
 
+        public static string startSoundString = "Play_DL_Slide_Start";
+        public static string stopSoundString = "Play_DL_Slide_Stop";
+
 
         private int cachedStocksToConsume = 0;
 
@@ -47,6 +50,8 @@ namespace DeadlockMovementAPI.EntityStates
 
 
             slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition + new Vector3(0, 0.5f, 0), Quaternion.Euler(idealDirection.x, characterBody.footPosition.y + 0.1f, idealDirection.z), modelLocator.modelBaseTransform);
+
+            Util.PlaySound(startSoundString, gameObject);
 
             base.OnEnter();
 
@@ -72,6 +77,8 @@ namespace DeadlockMovementAPI.EntityStates
 
             TryRemoveInfiniteAmmo();
 
+            Util.PlaySound(stopSoundString, gameObject);
+
             base.OnExit();
         }
 
@@ -88,11 +95,15 @@ namespace DeadlockMovementAPI.EntityStates
                 {
                     GameObject.Destroy(slideInstance);
 
+                    Util.PlaySound(stopSoundString, gameObject);
+
                     TryRemoveInfiniteAmmo();
                 }
                 else if (isGrounded && !slideInstance)
                 {
                     slideInstance = GameObject.Instantiate(DLAssets.slideEffect, characterBody.footPosition + new Vector3(0, 0.5f, 0), Quaternion.Euler(IdealDirection().x, characterBody.footPosition.y + 0.1f, IdealDirection().z), modelLocator.modelBaseTransform);
+
+                    Util.PlaySound(startSoundString, gameObject);
 
                     TryGiveInfiniteAmmo();
                 }

@@ -12,7 +12,7 @@ namespace DeadlockMovementAPI.EntityStates
         public static float initialDashSpeed = 4f;
         public static float finalDashSpeed = 3f;
         public static float baseDuration = 0.51f;
-        public static string soundString = "Play_Deadlock_Dash";
+        public static string soundString = "Play_DL_Dash";
 
         public GameObject dustInstance;
 
@@ -57,14 +57,7 @@ namespace DeadlockMovementAPI.EntityStates
 
         private void PlayDashAnimation()
         {
-            if (characterMotor.isGrounded)
-            {
-                PlayAnimation("FullBody, Override", "Dash", "Special.PlaybackRate", duration);
-            }
-            else
-            {
-                PlayAnimation("FullBody, Override", "Dash_Air", "Special.PlaybackRate", duration);
-            }
+            PlayAnimation("FullBody, Override", "Dash", "Special.PlaybackRate", duration);
         }
     }
 }

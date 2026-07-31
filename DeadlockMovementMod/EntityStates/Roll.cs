@@ -14,7 +14,7 @@ namespace DeadlockMovementAPI.EntityStates
         public static float initialSpeedCoefficient = 4f;
         public static float finalSpeedCoefficient = 0.75f;
 
-        public static string dodgeSoundString = "Play_Deadlock_Roll";
+        public static string dodgeSoundString = "Play_DL_Roll";
 
         public static float dodgeFOV = global::EntityStates.Commando.DodgeState.dodgeFOV;
 
