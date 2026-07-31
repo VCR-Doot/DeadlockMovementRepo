@@ -97,7 +97,7 @@ namespace DeadlockMovementAPI.EntityStates
 
             if (isAuthority && fixedAge >= 0.2f && player.GetButton(18) && isGrounded)
             {
-                outer.SetNextState(new Slide { startCoefficient = 2.5f });
+                outer.SetNextState(new Slide());
                 return;
             }
 
