@@ -58,8 +58,6 @@ namespace DeadlockMovementAPI.EntityStates
 
         public override void FixedUpdate()
         {
-            bool result = WallJumpCheck();
-
             if (isAuthority)
             {
                 if (characterMotor.Motor.GroundingStatus.IsStableOnGround && characterBody.HasBuff(DLBuffs.hiddenHasDashed))
@@ -92,6 +90,15 @@ namespace DeadlockMovementAPI.EntityStates
                     stopWatch += GetDeltaTime();
                 }
                 else if (characterMotor.velocity.magnitude <= 0.5f || !characterBody.isSprinting) stopWatch = 0;
+
+                if (inputBank.jump.justPressed)
+                {
+                    bool wallJumpable = WallJumpCheck(out Vector3 wallNormal);
+                    if (wallJumpable)
+                    {
+                        WallJump(wallNormal);
+                    }
+                }
             }
 
             base.FixedUpdate();
@@ -132,9 +139,9 @@ namespace DeadlockMovementAPI.EntityStates
         }
 
         //add parameter for level of detail return whether it's a wall jump
-        public bool WallJumpCheck()
+        public bool WallJumpCheck(out Vector3 wallNormal)
         {
-            //Goal: Get the nearest face, then average with adjacent faces, 
+            //Checking more directions, disabled to speed up compute times
             bool checkList1Enabled = false;
             bool checkList2Enabled = false;
 
@@ -149,12 +156,52 @@ namespace DeadlockMovementAPI.EntityStates
             //Check each node, if one is closer it becomes cached for final decision
             foreach (var check in directionChecks)
             {
-                if (NearWall(check))
+                if (NearWall(check, out RaycastHit hit))
                 {
+                    wallNormal = hit.normal;
                     return true;
                 }
             }
+            wallNormal = default;
             return false;
+
+        }
+        
+        public void WallJump(Vector3 wall = default)
+        {
+
+            //If have stamina bounce upwards | Queued for change after stamina additions
+            ProcessJump();
+
+            if (wall == new Vector3(0f, 0f, 0f))
+            {
+                Chat.AddMessage("Wall not defined in parametered call of WallJump()");
+                Log.Message("[Warning] DLMain | Wall not defined in call of WallJump(), use ProcessJump() for basic jump calls");
+                return;
+            }
+
+            characterMotor.velocity = ReflectOffSurface(wall);
+        }
+
+        public Vector3 ReflectOffSurface(Vector3 surface)
+        {
+            Vector3 currentVelocity = characterMotor.velocity;
+
+            //DirectionBounced = Reflected 
+            float movingToWall = Vector3.Dot(currentVelocity, -surface);
+            Vector3 bouncedVelocity = currentVelocity;
+
+            //1: Both Vectors in exact same direction
+            //0: Vectors at a 90* angle from eachother (sideways)
+            //-1: Vectors point in opposite directions
+            if (movingToWall > 0f)
+            {
+                bouncedVelocity = Vector3.Reflect(currentVelocity, surface);
+            }
+
+            bouncedVelocity += surface;
+
+            return bouncedVelocity;
 
         }
 
@@ -226,6 +273,17 @@ namespace DeadlockMovementAPI.EntityStates
             }
         } // Enable autosprint
 
+
+        //For outputting wall detection in wall jump
+        public bool NearWall(Vector3 check, out RaycastHit hit)
+        {
+            var rayRotation = Quaternion.Euler(check.x, check.y, check.z) * GetAimRay().direction.normalized;
+            Ray mond = new Ray(gameObject.transform.position, rayRotation);
+
+            return Util.CharacterSpherecast(gameObject, mond, 0.5f, out hit, 0.5f, LayerIndex.world.mask, QueryTriggerInteraction.Collide);
+        }
+
+        //Overload for checking front only
         public bool NearWall(Vector3 check = default)
         {
             var rayRotation = Quaternion.Euler(check.x, check.y, check.z) * GetAimRay().direction.normalized;
@@ -233,7 +291,7 @@ namespace DeadlockMovementAPI.EntityStates
             RaycastHit hit;
 
             return Util.CharacterSpherecast(gameObject, mond, 0.5f, out hit, 0.5f, LayerIndex.world.mask, QueryTriggerInteraction.Collide);
-        } // Near wall checl?
+        }
 
 
         public virtual EntityState SlideState()
